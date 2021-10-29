@@ -27,6 +27,8 @@ async function run() {
       const AdventuresCollection = database.collection("Adventures");
       const UserCollection = database.collection("Adventures__users");
       // Query for a movie that has the title 'The Room'
+
+      
       //Post api
 app.get('/Adventures',async(req,res)=>{
 
