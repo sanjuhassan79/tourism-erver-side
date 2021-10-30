@@ -96,7 +96,22 @@ const result=await UserCollection.deleteOne(query);
 res.json(result)
 
 })
+app.put('/users/:id',async(req,res)=>{
+  const id=req.params.id;
+  const  updarestatus=req.body;
+  const filter={_id:ObjectId(id)};
+  const options={upsert:true};
+  const updateDoc = {
+    $set: {
+      status:updarestatus.status
+    },
+  };
+  console.log(updateDoc);
 
+  const result=await UserCollection.updateOne(filter, updateDoc, options);
+  console.log('updating',id);
+  res.json(result)
+})
       
     } finally {
     //   await client.close();
